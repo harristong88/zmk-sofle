@@ -64,7 +64,7 @@
 &kp GRAVE  &none   &none   &none   &none   &none     &mmv MOVE_DOWN   &kp SLASH     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp MINUS   &trans
 &kp TILDE  &none   &none   &none   &none   &none     &mmv MOVE_LEFT   &kp ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PLUS    &kp EQUAL
 &trans     &none   &none   &none   &none   &none     &mmv MOVE_RIGHT  &none         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans
-&trans     &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans        &lt 3 N0      &trans        &none         &none
+&trans     &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &kp N0        &trans        &trans        &none         &none
             >;
 
             display-name = "layer1";
@@ -77,7 +77,7 @@
 &kp CAPSLOCK  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &mmv MOVE_DOWN   &kp PG_UP  &kp HOME  &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &kp DELETE
 &kp TAB       &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &mmv MOVE_LEFT   &kp PG_DN  &kp LEFT  &kp DOWN        &kp RIGHT        &kp PIPE         &kp UNDER
 &kp LSHFT     &none   &none   &none   &kp F11  &kp F12    &mmv MOVE_RIGHT  &kp LBKT   &kp RBKT  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp BSLH         &trans
-&trans        &trans  &trans  &trans  &trans   &trans     &mkp RCLK        &trans     &trans    &trans          &trans           &trans
+&trans        &trans  &trans  &trans  &trans   &trans     &mkp RCLK        &kp SPACE  &trans    &trans          &trans           &trans
             >;
 
             display-name = "layer2";
@@ -98,5 +98,12 @@
         };
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        layer3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 };
