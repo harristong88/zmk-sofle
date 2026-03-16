@@ -1,0 +1,9 @@
+menu "Default Toggle Behavior"
+
+config DEFAULT_TOGGLE
+    bool "Enable default toggle behavior"
+    default y
+    help
+      Toggle default layer between 0 and 4 on press.
+
+endmenu
